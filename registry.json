@@ -1,0 +1,76 @@
+{
+  "$schema": "https://skills.onepagent.top/registry.schema.json",
+  "version": 1,
+  "updated": "2026-04-18",
+  "skills": [
+    {
+      "name": "web-scraper",
+      "description": "Extract structured data from a URL using CSS selectors. Returns JSON.",
+      "icon": "🕷",
+      "author": "OnePagent Team",
+      "tags": ["web", "scraping", "utility"],
+      "source": "inline",
+      "skill": {
+        "name": "web-scraper",
+        "icon": "🕷",
+        "description": "Scrape structured data from any URL",
+        "trigger": "scrape|extract|crawl",
+        "body": "# Web Scraper\n\nWhen the user wants to extract data from a webpage, call `scrape_page` with the URL and a dictionary of CSS selectors. The tool returns matched text for each key.\n\n## Example\n- User: \"Get the title and price from https://example.com/item\"\n- Call: scrape_page({ url: '...', selectors: { title: 'h1', price: '.price' } })",
+        "tools": [
+          {
+            "name": "scrape_page",
+            "description": "Fetch a URL and extract text via CSS selectors",
+            "parameters": {
+              "type": "object",
+              "properties": {
+                "url": { "type": "string" },
+                "selectors": { "type": "object", "additionalProperties": { "type": "string" } }
+              },
+              "required": ["url", "selectors"]
+            },
+            "handler": "const r = await fetch(input.url); const html = await r.text(); const doc = new DOMParser().parseFromString(html, 'text/html'); const out = {}; for (const k in input.selectors) { const el = doc.querySelector(input.selectors[k]); out[k] = el ? el.textContent.trim() : null; } return JSON.stringify(out);"
+          }
+        ],
+        "references": {},
+        "scripts": {}
+      }
+    },
+    {
+      "name": "json-formatter",
+      "description": "Pretty-print, minify, or validate JSON blobs",
+      "icon": "📐",
+      "author": "community",
+      "tags": ["json", "utility", "format"],
+      "source": "url",
+      "url": "https://skills.onepagent.top/skills/json-formatter.json"
+    },
+    {
+      "name": "code-reviewer",
+      "description": "Opinionated code review focusing on correctness, security, readability",
+      "icon": "🔍",
+      "author": "sligter",
+      "tags": ["code", "review", "quality"],
+      "repo": "sligter/onepagent-skills-pack",
+      "branch": "main",
+      "path": "skills/code-reviewer"
+    },
+    {
+      "name": "sql-builder",
+      "description": "Construct and validate SQL queries from natural-language descriptions",
+      "icon": "🗄",
+      "author": "community",
+      "tags": ["sql", "database"],
+      "repo": "https://github.com/some-user/onepagent-sql-skill",
+      "branch": "main"
+    },
+    {
+      "name": "markdown-to-slides",
+      "description": "Convert a markdown outline into a reveal.js slide deck",
+      "icon": "📊",
+      "author": "community",
+      "tags": ["markdown", "slides", "export"],
+      "source": "url",
+      "url": "https://raw.githubusercontent.com/some-user/mp-slides/main/SKILL.md"
+    }
+  ]
+}

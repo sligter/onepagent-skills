@@ -1,0 +1,22 @@
+{
+  "name": "json-formatter",
+  "icon": "📐",
+  "description": "Pretty-print, minify, or validate JSON",
+  "trigger": "format json|minify json|validate json",
+  "body": "# JSON Formatter\n\nUse `format_json` with mode='pretty', 'minify', or 'validate'.",
+  "tools": [
+    {
+      "name": "format_json",
+      "description": "Format, minify or validate JSON input",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": { "type": "string" },
+          "mode": { "type": "string", "enum": ["pretty", "minify", "validate"] }
+        },
+        "required": ["text", "mode"]
+      },
+      "handler": "try { const o = JSON.parse(input.text); if (input.mode === 'validate') return 'valid'; if (input.mode === 'minify') return JSON.stringify(o); return JSON.stringify(o, null, 2); } catch (e) { return 'Invalid JSON: ' + e.message; }"
+    }
+  ]
+}
