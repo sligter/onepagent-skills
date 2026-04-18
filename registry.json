@@ -71,6 +71,15 @@
       "tags": ["markdown", "slides", "export"],
       "source": "url",
       "url": "https://raw.githubusercontent.com/some-user/mp-slides/main/SKILL.md"
+    },
+    {
+      "name": "deep-research",
+      "description": "Comprehensive research assistant that synthesizes information from multiple sources with citations",
+      "icon": "🔎",
+      "author": "awesome-llm-apps",
+      "tags": ["research", "analysis", "citations"],
+      "source": "url",
+      "url": "https://raw.githubusercontent.com/Shubhamsaboo/awesome-llm-apps/main/awesome_agent_skills/deep-research/SKILL.md"
     }
   ]
 }
