@@ -80,6 +80,16 @@
       "tags": ["research", "analysis", "citations"],
       "source": "url",
       "url": "https://raw.githubusercontent.com/Shubhamsaboo/awesome-llm-apps/main/awesome_agent_skills/deep-research/SKILL.md"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Create new skills, improve existing skills, and measure skill performance",
+      "icon": "🛠️",
+      "author": "Anthropic",
+      "tags": ["skills", "authoring", "evaluation"],
+      "repo": "anthropics/skills",
+      "branch": "main",
+      "path": "skills/skill-creator"
     }
   ]
 }
